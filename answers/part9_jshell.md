@@ -24,13 +24,24 @@ s instanceof Circle c ? "Круг r=" + c.r() : "Не круг"
 
 ### Фактический вывод:
 
+
 ```
-(впишите результат выполнения каждой команды)
+jshell> sealed interface Shape permits Circle, Square {}
+|  created interface Shape, however, it cannot be referenced until class Circle, and class Square are declared
+
+jshell> record Circle(double r) implements Shape {}
+|  created record Circle, however, it cannot be referenced until class Shape is declared
+
+jshell> record Square(double side) implements Shape {}
+|  created record Square
+
+jshell> Shape s = new Circle(5)
+s ==> Circle[r=5.0]
 ```
 
 ### Вопрос: Что произойдёт при попытке создать `record Triangle(double a) implements Shape {}`?
 
-**Ваш ответ:**
+**Compilation Error**
 
 
 
@@ -54,12 +65,19 @@ pipeline2.apply("  hello world  ")
 ### Фактический вывод:
 
 ```
-(впишите результат)
+| imported package java.util.function
+trim ==> $Lambda$... (reference to String::trim)
+upper ==> $Lambda$... (reference to String::toUpperCase)
+exclaim ==> $Lambda$...
+pipeline1 ==> $Lambda$...
+pipeline2 ==> $Lambda$...
+$9 ==> "HELLO WORLD!"
+$10 ==> "HELLO WORLD!"
 ```
 
 ### Вопрос: Дают ли `andThen()` и `compose()` одинаковый результат? В каком случае результаты будут различаться?
 
-**Ваш ответ:**
+**Да. Когда приоритет операций будет иметь значение**
 
 
 
@@ -82,10 +100,16 @@ hashSet.getClass().getSimpleName()
 ### Фактический вывод:
 
 ```
-(впишите результат)
+| created enum Color
+enumSet ==> [RED, GREEN, BLUE]
+hashSet ==> [RED, GREEN, BLUE]
+$5 ==> true
+$6 ==> true
+$7 ==> "RegularEnumSet"
+$8 ==> "HashSet"
 ```
 
 ### Вопрос: Почему внутренний класс EnumSet называется `RegularEnumSet`? Что произойдёт, если enum будет иметь больше 64 констант?
 
-**Ваш ответ:**
+**Поскольку enum < 64. При enum > 64 создается JumboEnumSet на long[]**
 
