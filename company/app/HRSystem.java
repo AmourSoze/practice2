@@ -31,14 +31,14 @@ public class HRSystem {
 Для каждой строки (A–H) определите: скомпилируется ли она? Если нет — укажите причину (модификатор + пакет).
 Заполните таблицу:
 Строка	Компилируется?	Почему?
-A
-B
-C
-D
-E
-F
-G
-H
+A Y public
+B N protected
+C N private
+D N private
+E Y public
+F N protected
+G N private
+H N private
 
     */
 

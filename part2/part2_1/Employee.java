@@ -15,78 +15,34 @@ package part2.part2_1;
  *
  * Примечание: запускать нужно EmployeeBonus.java, а не этот файл.
  */
-public abstract class Employee {
-
-    /** Имя сотрудника. protected — доступно в подклассах. */
+abstract class Employee {
     protected String name;
-
-    /** Базовый оклад. protected — доступно в подклассах. */
     protected double baseSalary;
 
-    /**
-     * Конструктор абстрактного класса.
-     *
-     * Подсказка: сохраните параметры в поля:
-     * this.name = name; this.baseSalary = baseSalary;
-     *
-     * Важно: конструктор абстрактного класса вызывается из подклассов
-     * через super(name, baseSalary).
-     */
     public Employee(String name, double baseSalary) {
-        // TODO: сохраните параметры в поля:
-        //   this.name = name;
-        //   this.baseSalary = baseSalary;
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        this.name = name;
+        this.baseSalary = baseSalary;
     }
 
     public String getName() {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        return null; // TODO: верните name
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        return name;
     }
 
     public double getBaseSalary() {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        return 0; // TODO: верните baseSalary
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        return baseSalary;
     }
 
-    /**
-     * Вычисляет бонус сотрудника. Абстрактный метод — каждый подкласс
-     * определяет свою формулу.
-     *
-     * @return сумма бонуса
-     */
     public abstract double calculateBonus();
 
-    /**
-     * Полная компенсация = оклад + бонус.
-     *
-     * Подсказка: return baseSalary + calculateBonus();
-     *
-     * Этот метод работает одинаково для всех подклассов благодаря полиморфизму:
-     * calculateBonus() вызовет версию конкретного подкласса.
-     *
-     * @return базовый оклад + бонус
-     */
     public double totalCompensation() {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        return 0; // TODO: верните baseSalary + calculateBonus()
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        return baseSalary + calculateBonus();
     }
 
-    /**
-     * Формат: "Ольга | Оклад: 120000.0 | Бонус: 43000.0 | Итого: 163000.0"
-     *
-     * Подсказка:
-     * return name + " | Оклад: " + baseSalary + " | Бонус: " + calculateBonus() + " | Итого: " + totalCompensation();
-     */
     @Override
     public String toString() {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        return ""; // TODO: верните name + " | Оклад: " + baseSalary + " | Бонус: " + calculateBonus() + " | Итого: " + totalCompensation()
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        double bonus = calculateBonus();
+        double total = totalCompensation();
+        return String.format("%s | Оклад: %.1f | Бонус: %.1f | Итого: %.1f",
+                name, baseSalary, bonus, total);
     }
 }

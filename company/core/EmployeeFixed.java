@@ -26,69 +26,45 @@ public class EmployeeFixed {
     private double salary;
     private String password;
 
-    /**
-     * Подсказка: this.name = name; this.age = age; ...
-     */
     public EmployeeFixed(String name, int age, double salary, String password) {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+        this.password = password;
     }
 
-    /** Верните name */
     public String getName() {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        return null; // TODO: верните name
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        return name;
     }
 
-    /** Верните age */
     public int getAge() {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        return 0; // TODO: верните age
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        return age;
     }
 
-    /** Верните salary */
     public double getSalary() {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        return 0; // TODO: верните salary
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        return salary;
     }
 
-    // Геттер для password НЕ создаём — пароль не должен покидать объект.
 
-    /**
-     * Повышает зарплату.
-     * Подсказка: this.salary += raise;
-     */
     public void promote(double raise) {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        if (raise > 0) {
+            this.salary += raise;
+        }
     }
 
-    /**
-     * Выводит сводку.
-     * Формат: "Иван, 30 лет, 80000.0 руб."
-     */
     public void printSummary() {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        System.out.println(name + ", " + age + " лет, " + salary + " руб.");
     }
 
     private boolean validatePassword(String input) {
-        return password.equals(input);
+        return password != null && password.equals(input);
     }
 
-    /**
-     * Публичный фасад для приватного validatePassword().
-     * Подсказка: return validatePassword(input);
-     */
     public boolean authenticate(String input) {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        return false; // TODO: верните validatePassword(input)
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        return validatePassword(input);
+    }
+
+    public String getRole() {
+        return "Employee";
     }
 }

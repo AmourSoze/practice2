@@ -8,28 +8,17 @@ package part2.part2_1;
  * Подсказка для конструктора: вызовите super(name, baseSalary),
  * затем сохраните language.
  */
-public class Developer extends Employee {
 
-    /** Основной язык программирования. */
+class Developer extends Employee {
     private String language;
 
     public Developer(String name, double baseSalary, String language) {
         super(name, baseSalary);
-        // TODO: сохраните language в поле
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        this.language = language;
     }
 
-    /**
-     * Бонус разработчика = baseSalary * 0.12.
-     *
-     * Пример: оклад 95000 → бонус = 11400.
-     */
     @Override
     public double calculateBonus() {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        return 0; // TODO: верните baseSalary * 0.12
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        return baseSalary * 0.12;
     }
 }

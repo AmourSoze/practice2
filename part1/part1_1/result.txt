@@ -1,0 +1,13 @@
+C:\Users\Pravsha\Downloads\jdk-26_windows-x64_bin\jdk-26\bin\java.exe "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2026.1\lib\idea_rt.jar=56077" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath C:\Users\Pravsha\IdeaProjects\practice2\out\production\practice2 part1.part1_1.BankAccount
+Банковская система инициализирована
+Создание счёта #1
+Создание счёта #2
+[ACC-1] Алиса: 1000,00 руб.
+[ACC-2] Борис: 500,00 руб.
+После пополнения: [ACC-1] Алиса: 1500,00 руб.
+После снятия: [ACC-1] Алиса: 1300,00 руб.
+Ошибка: недостаточно средств
+Ошибка: сумма должна быть положительной
+Всего счетов: 2
+
+Process finished with exit code 0
