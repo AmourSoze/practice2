@@ -46,8 +46,7 @@ public class LibrarySystem {
         /** Возвращает русское название жанра. */
         public String getRussianName() {
             // ▼ ВАШ КОД ЗДЕСЬ ▼
-return "";
-
+            return russianName;
             // ▲ КОНЕЦ ВАШЕГО КОДА ▲
         }
 
@@ -165,7 +164,12 @@ return "";
          */
         public void printCatalog() {
             // ▼ ВАШ КОД ЗДЕСЬ ▼
-
+            for (LibraryItem item : items) {
+                switch (item) {
+                    case PhysicalBook pb -> System.out.println("Физ.: " + pb.getInfo());
+                    case EBook eb        -> System.out.println("Эл.:  " + eb.getInfo());
+                }
+            }
             // ▲ КОНЕЦ ВАШЕГО КОДА ▲
         }
 
@@ -192,7 +196,7 @@ return "";
          */
         public double totalValue() {
             // ▼ ВАШ КОД ЗДЕСЬ ▼
-return 0.0;
+            return items.stream().mapToDouble(i -> i.book().price()).sum();
             // ▲ КОНЕЦ ВАШЕГО КОДА ▲
         }
 
@@ -204,8 +208,8 @@ return 0.0;
          */
         public Optional<Book> mostExpensive() {
             // ▼ ВАШ КОД ЗДЕСЬ ▼
-return null;
-           // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+            return items.stream().map(LibraryItem::book).max(Comparator.comparingDouble(Book::price));
+            // ▲ КОНЕЦ ВАШЕГО КОДА ▲
         }
 
         /**
