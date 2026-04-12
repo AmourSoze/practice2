@@ -1,0 +1,7 @@
+"  пРИВЕТ    МИР  " → "Привет мир"
+"   jAVA   пРОГРАММИРОВАНИЕ   " → "Java программирование"
+"ТЕСТ" → "Тест"
+Частоты: {Java=1, python=2, java=2}
+Самое частое: python
+
+Process finished with exit code 0
